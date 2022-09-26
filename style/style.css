@@ -1,0 +1,320 @@
+:root {
+  --bg-color: #2c3333;
+  --main-color: #7c9292;
+  --input-bg: #3f4e4e;
+  --input-plc: #7c9292;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+input {
+  border: none; /* Removes the default border */
+}
+​ input:focus {
+  outline: none; /* Removes the border when the input is clicked */
+}
+::placeholder {
+  color: var(--bg-color);
+  font-size: 16px;
+  text-align: center;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: white;
+  font-family: "Poppins", sans-serif;
+}
+
+.navbar {
+  margin: 0 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #7c9292;
+  padding: 1rem;
+}
+
+.navbar .title h1 {
+  font-weight: 600;
+  font-size: 24;
+}
+
+.navbar .search-bar {
+  width: 30%;
+  padding: 0rem 1rem;
+
+  border-radius: 40px;
+  background-color: var(--main-color);
+}
+
+.navbar .search-bar input {
+  border: none;
+  width: 100%;
+  padding: 1rem 0;
+  outline: none;
+  color: var(--bg-color);
+  font-size: 18px;
+  font-weight: 400;
+  background-color: transparent;
+}
+
+.main {
+  margin: 0 10%;
+  margin-top: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  gap: 5rem;
+}
+
+.unread-book,
+.read-book {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+  gap: 3rem;
+  height: 70vh;
+  /* background-color: red; */
+  overflow: scroll;
+}
+
+.unread-book h2,
+.read-book h2 {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 36px;
+  display: flex;
+  align-items: center;
+}
+
+.card-book {
+  background-color: var(--main-color);
+  padding: 1.5rem;
+  border-radius: 20px;
+  width: 400px;
+  height: 430px;
+}
+
+.card-book .book-head {
+  border-bottom: 1px solid #d9d9d9;
+  margin-bottom: 1rem;
+}
+.card-book .book-head h3 {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 33px;
+  text-align: center;
+}
+
+.card-book .book-head p {
+  text-align: end;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.book-desc {
+  width: 400px;
+  height: 300px;
+}
+.book-desc h5 {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.book-desc p {
+  margin-top: 1rem;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 27px;
+  height: 80%;
+  width: 100%;
+  /* background-color: red; */
+  overflow: scroll;
+}
+
+.book-action {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.book-action div {
+  cursor: pointer;
+}
+
+.book-action div:hover {
+  margin-top: -1rem;
+  transition: all ease-in-out 0.3s;
+}
+
+.form {
+  background-color: var(--main-color);
+  width: 350px;
+  padding: 3rem;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 2rem;
+}
+
+.form h4 {
+  text-align: center;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+}
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.input-group label {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.input-checkbox label {
+  font-style: italic;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+}
+.input-group input {
+  background-color: var(--input-bg);
+  border: none;
+  outline: none;
+  padding: 1rem;
+  border-radius: 40px;
+  text-align: left;
+  font-size: 20px;
+  color: white;
+  font-weight: 300;
+}
+
+.input-group input::placeholder {
+  font-style: italic;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  color: var(--input-plc);
+}
+.input-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.input-button:hover {
+  cursor: pointer;
+}
+.input-button input {
+  border: none;
+  outline: none;
+  padding: 0.5rem 4rem;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+  color: white;
+  background: #3f4e4e;
+  border: 1px solid #2c3333;
+  box-shadow: 5px 6px 7px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+
+.input-delete-button {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 2rem 15%;
+}
+
+.input-delete-button input {
+  border: none;
+  outline: none;
+  padding: 0.5rem 4rem;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+  color: white;
+  background: #fc3c00;
+  border: 1px solid #2c3333;
+  box-shadow: 5px 6px 7px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar .title h1 {
+    font-size: 18px;
+  }
+  .card-book {
+    width: 250px;
+    height: 380px;
+  }
+  .book-desc {
+    width: 250px;
+    height: 200px;
+    margin-bottom: 1rem;
+  }
+
+  .book-desc h5 {
+    font-size: 16px;
+  }
+  .book-desc p {
+    font-size: 15px;
+  }
+  .main {
+    gap: 0rem;
+    flex-wrap: wrap-reverse;
+  }
+
+  .form {
+    width: 200px;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .form h4 {
+    font-size: 18px;
+  }
+
+  .input-group label {
+    font-size: 15px;
+  }
+  .input-checkbox label {
+    font-size: 15px;
+  }
+  .input-group input {
+    padding: 0.5rem;
+    font-size: 14px;
+  }
+  .input-group input::placeholder {
+    font-size: 14px;
+  }
+  .input-button input {
+    padding: 0.2rem 2rem;
+    font-size: 16px;
+  }
+
+  .input-delete-button input {
+    padding: 0.5rem;
+    font-size: 16px;
+  }
+  .input-delete-button {
+    margin: 0;
+    justify-content: center;
+    margin-bottom: 10%;
+  }
+}

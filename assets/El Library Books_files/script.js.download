@@ -1,0 +1,134 @@
+const books = [];
+
+const RENDER_BOOKS = "render-books";
+const STORAGE_KEY = "books";
+
+function isStorageExist() {
+  if (typeof Storage === undefined) {
+    alert("Browser kamu tidak mendukung local storage");
+    return false;
+  }
+  return true;
+}
+
+const saveData = () => {
+  if (isStorageExist()) {
+    const dataParsed = JSON.stringify(books);
+    localStorage.setItem(STORAGE_KEY, dataParsed);
+    document.dispatchEvent(new Event(RENDER_BOOKS));
+  }
+};
+
+function loadDataFromStorage() {
+  const data = JSON.parse(localStorage.getItem(STORAGE_KEY));
+
+  if (data !== null) {
+    for (const book of data) {
+      books.push(book);
+    }
+  }
+
+  document.dispatchEvent(new Event(RENDER_BOOKS));
+}
+
+function generateRandomId() {
+  return +new Date();
+}
+
+function generateBookObject(id, title, author, desc, isComplete) {
+  return {
+    id,
+    title,
+    author,
+    desc,
+    isComplete,
+  };
+}
+
+function addBook() {
+  const title = document.getElementById("book-title").value;
+  const desc = document.getElementById("book-desc").value;
+  const author = document.getElementById("book-author").value;
+  const isComplete = document.getElementById("book-done-type").checked;
+  const id = generateRandomId();
+
+  const book = generateBookObject(id, title, author, desc, isComplete);
+  books.push(book);
+  saveData();
+  document.dispatchEvent(new Event(RENDER_BOOKS));
+}
+
+function makeBook(book) {
+  const title = document.createElement("h3");
+  title.innerText = book.title;
+
+  const author = document.createElement("p");
+  author.innerText = book.author;
+
+  const bookHead = document.createElement("p");
+  bookHead.classList.add("book-head");
+  bookHead.append(title, author);
+
+  const sectionDesc = document.createElement("h5");
+  sectionDesc.innerText = "Short Description";
+
+  const bookDesc = document.createElement("p");
+  bookDesc.innerText = book.desc;
+
+  const bookDescContainer = document.createElement("div");
+  bookDescContainer.classList.add("book-desc");
+  bookDescContainer.append(sectionDesc, bookDesc);
+
+  const iconTrash = document.createElement("img");
+  iconTrash.setAttribute("src", "../assets/icon-trash.png");
+
+  const iconTrashDiv = document.createElement("div");
+  iconTrashDiv.classList.add("icon-trash");
+  iconTrashDiv.append(iconTrash);
+
+  const iconDone = document.createElement("img");
+  iconDone.setAttribute("src", "../assets/icon-done.png");
+
+  const iconDoneDiv = document.createElement("div");
+  iconDoneDiv.classList.add("icon-done");
+  iconDoneDiv.append(iconDone);
+
+  const bookActionDiv = document.createElement("div");
+  bookActionDiv.append(iconTrashDiv, iconDoneDiv);
+
+  const cardBook = document.createElement("div");
+  cardBook.classList.add("card-book");
+  cardBook.append(bookHead, bookDesc, bookActionDiv);
+
+  return cardBook;
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const submitForm = document.getElementById("form-add");
+
+  submitForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    addBook();
+  });
+
+  if (isStorageExist()) {
+    loadDataFromStorage();
+  }
+});
+
+document.addEventListener(RENDER_BOOKS, function () {
+  const unreadBooks = document.getElementById("unread-book");
+  const finishReadBooks = document.getElementById("read-book");
+  unreadBooks.innerHTML = "";
+  finishReadBooks.innerHTML = "";
+
+  books.map((item) => {
+    const book = makeBook(item);
+
+    if (!item.isComplete) {
+      unreadBooks.append(book);
+    } else {
+      finishReadBooks.append(book);
+    }
+  });
+});

@@ -1,0 +1,97 @@
+
+<!-- saved from url=(0033)http://127.0.0.1:5500/index.html? -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Library Books</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="./El Library Books_files/css2" rel="stylesheet">
+    <link rel="stylesheet" href="./El Library Books_files/style.css">
+  </head>
+  <body data-new-gr-c-s-check-loaded="14.1080.0" data-gr-ext-installed="">
+    <header>
+      <nav class="navbar">
+        <div class="title">
+          <h1>El Library Books</h1>
+        </div>
+        <div class="search-bar">
+          <input type="text" placeholder="Search your book here">
+        </div>
+      </nav>
+    </header>
+    <main class="main">
+      <section class="unread-book" id="unread-book"></section>
+      <section class="read-book" id="read-book"></section>
+      <section class="form-add">
+        <form id="form-add" class="form">
+            <h4>Add a book to read</h4>
+            <div class="input-group">
+                <label for="">Book Title</label>
+                <input type="text" placeholder="Type the title here" required="" id="book-title">
+            </div>
+            <div class="input-group">
+                <label for="">Short Description</label>
+                <input type="text" placeholder="Type the desc here" required="" id="book-desc">
+            </div>
+            <div class="input-group">
+                <label for="">Author</label>
+                <input type="text" placeholder="Type the Author name" required="" id="book-author">
+            </div>
+            <div class="input-checkbox">
+                <label for="">Mark as done read?</label>
+                <input type="checkbox" name="" id="book-done-type">
+            </div>
+            <div class="input-button">
+                <input type="submit" value="Add Book" id="input-button">
+            </div>
+        </form>
+      </section>
+      
+    </main>
+    <div class="input-delete-button ">
+        <input type="submit" value="Clear all books" id="delete-all-button">
+    </div>
+    <script src="./El Library Books_files/script.js.download"></script>
+  <!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
