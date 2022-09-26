@@ -116,7 +116,7 @@ function makeBook(book) {
   bookDescContainer.append(sectionDesc, bookDesc);
 
   const iconTrash = document.createElement("img");
-  iconTrash.setAttribute("src", "../assets/icon-trash.png");
+  iconTrash.setAttribute("src", "https://raw.githubusercontent.com/oriastanjung/el-library-books/master/assets/icon-trash.png");
 
   const iconTrashDiv = document.createElement("div");
   iconTrashDiv.classList.add("icon-trash");
@@ -127,7 +127,7 @@ function makeBook(book) {
   });
 
   const iconDone = document.createElement("img");
-  iconDone.setAttribute("src", "../assets/icon-done.png");
+  iconDone.setAttribute("src", "https://raw.githubusercontent.com/oriastanjung/el-library-books/master/assets/icon-done.png");
 
   const iconDoneDiv = document.createElement("div");
   iconDoneDiv.classList.add("icon-done");
